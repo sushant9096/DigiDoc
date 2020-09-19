@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D5 Print Preview</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:10px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-body">
+    <div class="table-editable" id="table">
+        <div class="row">
+            <div class="col text-right font-weight-bold">D5</div>
+        </div>
+        <div class="row">
+            <div class="cell">For AICTE Diploma Courses</div>
+            <div class="cell" style="margin-left: 40vw">wef - 2017-18</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">Maharashtra State Board of Technical Education</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">PROGRESSIVE ASSESSMENT OF THEORY</div>
+        </div>
+        <div class="row" style="padding-top: 10vh">
+            <div id="academicV" class="col is-left">Academic Year:</div>
+        </div>
+        <div class="row">
+            <div id="programV" class="col">Program:</div>
+            <div id="courseV" class="col">Course:</div>
+            <div id="course_cV" class="col">Course Code:</div>
+        </div>
+        <div class="row" style="padding-bottom: 2vh">
+            <div id="semesterV" class="col">Semester:</div>
+            <div id="name_falV" class="col">Name of Faculty:</div>
+        </div>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+            <tr>
+                <th rowspan="2" class="text-center align-middle">Sr. No</th>
+                <th rowspan="2" class="text-center align-middle">Roll No</th>
+                <th rowspan="2" class="text-center align-middle">Name of Student</th>
+                <th colspan="2" class="text-center align-middle">Course Code &amp; Name →</th>
+                <th colspan="2" class="text-center align-middle" contenteditable="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th class="text-center align-middle">(Max 20)</th>
+                <th colspan="2" class="text-center align-middle">Micro project<br>(out of 10)</th>
+                <th class="text-center align-middle">(out of 30)</th>
+            </tr>
+            <tr>
+                <th class="text-center align-middle">Enrollment No</th>
+                <th class="text-center align-middle">Exam Seat No</th>
+                <th class="text-center align-middle">TS1</th>
+                <th class="text-center align-middle">TS2</th>
+                <th class="text-center align-middle">Average of TS1 &amp; TS2</th>
+                <th class="text-center align-middle">Performance in Group Activity<br>(out of 6)</th>
+                <th class="text-center align-middle">Individual Performance in Oral / Presentation<br>(out of 4)</th>
+                <th class="text-center align-middle">Total</th>
+            </tr>
+            </thead>
+            <tbody id="et_d1_tbl_body">
+            </tbody>
+        </table>
+        <div class="row" style="padding-top: 5vh">
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of Faculty)</div>
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of HOD)</div>
+        </div>
+        <div class="row">
+            <strong>*Refer Rubric in Annexure-1</strong>
+        </div>
+        <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+            </span>
+    </div>
+</div>
+<script>
+
+    // jquery
+    $ = require('jquery');
+    require('./pr_d5');
+</script>
+</body>
+</html>

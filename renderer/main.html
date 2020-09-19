@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="English">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../bower_components/bulma/css/bulma.css" rel="stylesheet">
+    <link href="../bower_components/font-awesome/css/all.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .hero {
+            height: 100vh;
+            position: relative;
+        }
+        .notification {
+            padding-top: 20px;
+            padding-bottom: 30px;
+        }
+        .button {
+            margin-top: 10px;
+        }
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:10px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase.js"></script>
+</head>
+<body>
+<div class="hero is-primary" id="login-form">
+    <div class="hero-body">
+        <h1 class="title has-text-centered is-size-2">Login To Digital Doc</h1>
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <div class="notification is-light">
+                    <figure class="image container is-128x128">
+                        <img src="../images/DigiDocLogo.png">
+                    </figure>
+                    <div class="field">
+                        <label class="label">Email:</label>
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" id="email-in" placeholder="Email" type="email">
+                            <span class="icon is-small is-left">
+							  <i class="fas fa-envelope"></i>
+							</span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password:</label>
+                        <p class="control has-icons-left">
+                            <input class="input" id="password-in" placeholder="Password" type="password">
+                            <span class="icon is-small is-left">
+                  				<i class="fas fa-lock"></i>
+                  			</span>
+                        </p>
+                    </div>
+                    <button class="button" id="btn-login">Login</button>
+                    <button class="button" id="btn-sign">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="sign-up-card-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Registration to DIGIDOC</p>
+                <button aria-label="close" class="delete"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" placeholder="Text input" type="text" id="name-in">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-danger" placeholder="Email input" type="email" id="email-sign-up">
+                        <span class="icon is-small is-left">
+      						<i class="fas fa-envelope"></i>
+    					</span>
+                        <span class="icon is-small is-right">
+      						<i class="fas fa-exclamation-triangle"></i>
+						</span>
+                    </div>
+                    <p class="help is-danger" id="email_inv">This email is invalid</p>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input class="input" placeholder="Password" type="password" id="password-sign-up">
+                        <span class="icon is-small is-left">
+      						<i class="fas fa-lock"></i>
+    					</span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">User Roll</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="user_roll_select">
+                                <option value="please select">Please Select</option>
+                                <option value="ADMIN">Admin</option>
+                                <option value="HOD">HOD</option>
+								<option value="FACULTY">FACULTY</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" id="sign-up-submit">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light" id="cancel-sign-up">Cancel</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="modal has-background-dark" id="login-status">
+        <h1 class="heading">Login Successfully</h1>
+    </div>
+</div>
+</body>
+<script>
+    // jQuery
+    $ = require('jquery');
+
+    // Main app script
+    require('./app');
+</script>
+</html>

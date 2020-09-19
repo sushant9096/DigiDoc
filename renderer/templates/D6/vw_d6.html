@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View/Edit D6</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../bower_components/font-awesome/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Editable table -->
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editing D6</h3>
+    <div class="card-body">
+        <div class="table-editable" id="table">
+            <div class="row">
+                <div class="col text-right font-weight-bold">D6</div>
+            </div>
+            <div class="row">
+                <div class="col text-center font-weight-bold">Maharashtra State Board of Technical Education</div>
+            </div>
+            <div class="row">
+                <div class="col text-center font-weight-bold">ANALYSIS OF TERM END EXAMINATION</div>
+            </div>
+            <div class="row" style="padding-top: 10vh; padding-bottom: 2vh">
+                <div id="programV" class="col">Program:</div>
+                <div id="ExaminationV" class="col">Examination:</div>
+                <div id="semesterV" class="col">Semester:</div>
+            </div>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Course Code</th>
+                    <th>Name of Course</th>
+                    <th>Passing Heads</th>
+                    <th>Marks Obtained Lowest</th>
+                    <th>Marks Obtained Highest</th>
+                    <th>No. of Student appeared</th>
+                    <th>No. of Student Passed</th>
+                    <th>% Pass</th>
+                    <th>% of Student above 60%</th>
+                </tr>
+                </thead>
+                <tbody id="et_d1_tbl_body">
+                </tbody>
+            </table>
+            <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="impFieldModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Format Creation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <strong>Please!</strong> Fill All Fields Before Submit.
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button id="fill_OK_btn" type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="waitD6RowCreationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Record Creation</h4>
+                    <button type="button" class="close">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    You have to wait Please!
+                </div>
+
+                <!-- Modal footer -->
+                <!--div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div-->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="row d-flex justify-content-center modalWrapper">
+        <div aria-hidden="true" aria-labelledby="modalAdd" class="modal fade addNewInputs" id="modalAdd" role="dialog"
+             tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold text-primary ml-5">Add New Data</h4>
+                        <button aria-label="Close" class="close text-primary" data-dismiss="modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Course Code</label>
+                            <input class="form-control validate" id="inputCC" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Name of Course</label>
+                            <input class="form-control validate" id="inputNOC" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-ESE Marks Obtained Lowest</label>
+                            <input class="form-control validate" id="inputTHESEMOL" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-PA Marks Obtained Lowest</label>
+                            <input class="form-control" id="inputTHPAMOL" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-ESE Marks Obtained Highest</label>
+                            <input class="form-control validate" id="inputTHESEMOH" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-PA Marks Obtained Highest</label>
+                            <input class="form-control" id="inputTHPAMOH" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-ESE No.of Students Appeared</label>
+                            <input class="form-control" id="inputNOSATHESE" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-PA No.of Students Appeared</label>
+                            <input class="form-control" id="inputNOSATHPA" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-ESE No. of Students Passed</label>
+                            <input class="form-control" id="inputNOSPTHESE" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-PA No. of Students Passed</label>
+                            <input class="form-control" id="inputNOSPPA" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-ESE % Pass</label>
+                            <input class="form-control" id="inputPerPTHESE" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-PA % Pass</label>
+                            <input class="form-control" id="inputPerPPA" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-ESE % of Students Above 60%</label>
+                            <input class="form-control" id="inputPerSixTHESE" type="number">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">TH-PA % of Students Above 60%</label>
+                            <input class="form-control" id="inputPerSixPA" type="number">
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
+                        <button id="add_row" class="btn btn-outline-primary btn-block buttonAdd" data-dismiss="modal">Add
+                            <i class="fas fa-paper-plane-o ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Editable table -->
+<button id="go_back_home" class="btn btn-outline-info float-right m-4 font-weight-bold">Go Back Home</button>
+<button id="print_preview" class="btn btn-outline-info float-right m-4 font-weight-bold">Print Preview</button>
+<script>
+
+    $ = require('jquery');
+    window.$ = $;
+    require('bootstrap');
+    require('./vw_d6')
+</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+
+    <link href='../bower_components/bulma/css/bulma.min.css' rel='stylesheet prefetch'>
+
+    <link href="../bower_components/font-awesome/css/fontawesome.css" rel="stylesheet">
+    <style>
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:10px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class='columns'>
+    <div class='container profile'>
+        <div class='modal' id='edit-preferences-modal'>
+            <div class='modal-background'></div>
+            <div class='modal-card'>
+                <header class='modal-card-head'>
+                    <p class='modal-card-title'>Edit Preferences</p>
+                    <button class='delete'></button>
+                </header>
+                <section class='modal-card-body'>
+                    <label class='label'>Name</label>
+                    <p class='control'>
+                        <input class='input' placeholder='Text input' type='text'>
+                    </p>
+                    <label class='label'>Username</label>
+                    <p class='control has-icon has-icon-right'>
+                        <input class='input' placeholder='Text input' type='text' value='pmillerk'>
+                    </p>
+                    <label class='label'>Email</label>
+                    <p class='control has-icon has-icon-right'>
+                        <input class='input' placeholder='Email input' type='text' value='hello@'>
+                        <i class='fa fa-warning'></i>
+                        <span class='help is-danger'>This email is invalid</span>
+                    </p>
+                    <div class='control'>
+                        <div class='control-label is-pulled-left'>
+                            <label class='label'>Date of Birth</label>
+                        </div>
+                        <span>
+              <span class='select'>
+                <select>
+                  <option>Month</option>
+                  <option>With options</option>
+                </select>
+              </span>
+              <span class='select'>
+                <select>
+                  <option>Day</option>
+                  <option>With options</option>
+                </select>
+              </span>
+              <span class='select'>
+                <select>
+                  <option>Year</option>
+                  <option>With options</option>
+                </select>
+              </span>
+            </span>
+                    </div>
+                    <label class='label'>Description</label>
+                    <p class='control'>
+                        <textarea class='textarea' placeholder='Describe Yourself!'></textarea>
+                    </p>
+                    <div class='content'>
+                        <h1>Optional Information</h1>
+                    </div>
+                    <label class='label'>Phone Number</label>
+                    <p class='control has-icon has-icon-right'>
+                        <input class='input' placeholder='Text input' type='text' value='+1 *** *** 0535'>
+                    </p>
+                    <label class='label'>Work</label>
+                    <p class='control has-icon has-icon-right'>
+                        <input class='input' placeholder='Text input' type='text' value='Greater Washington Publishing'>
+                    </p>
+                    <label class='label'>School</label>
+                    <p class='control has-icon has-icon-right'>
+                        <input class='input' placeholder='Text input' type='text' value='George Mason University'>
+                    </p>
+                </section>
+                <footer class='modal-card-foot'>
+                    <a class='button is-primary modal-save'>Save changes</a>
+                    <a class='button modal-cancel'>Cancel</a>
+                </footer>
+            </div>
+        </div>
+        <div class='section profile-heading'>
+            <div class='columns is-mobile'>
+                <div class='columns column name'>
+                    <p class="column">
+                        <span class='title is-bold' id="user_name"></span>
+                    </p>
+                    <p class='column tagline' id="user_bio">
+                        <strong>You Are Offline Try Checking Your Internet!</strong>
+                    </p>
+                    <button class="column is-narrow button is-size-5" style="color: #276cda; background-color: #00e7eb;" id="logout">Logout</button>
+                </div>
+                <!--div class='column is-2-tablet is-4-mobile has-text-centered'>
+                    <p class='stat-val'>0</p>
+                    <p class='stat-key'>saved templates</p>
+                </div>
+                <div class='column is-2-tablet is-4-mobile has-text-centered'>
+                    <p class='stat-val'>10</p>
+                    <p class='stat-key'>likes</p>
+                </div>
+                <div class='column is-2-tablet is-4-mobile has-text-centered'>
+                    <p class='stat-val'>3</p>
+                    <p class='stat-key'>lists</p>
+                </div-->
+            </div>
+        </div>
+        <div class='profile-options is-fullwidth'>
+            <div class='tabs is-fullwidth is-medium'>
+                <ul>
+                    <li class='link is-active' id="av_template">
+                    <a>
+                    <span>Available Templates</span>
+                    </a>
+                    </li>
+                    <li class='link' id="sv_template">
+                    <a>
+                    <span>Saved Templates</span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box" id="av_container">
+                <nav aria-label="template" class="pagination" id="av_cont_nav" role="navigation">
+                    <ul>
+                        <li class="pgLi pagination-link is-current" id="D1">D1</li>
+                        <li class="pgLi pagination-link" id="D2">D2</li>
+                        <li class="pgLi pagination-link" id="D3">D3</li>
+                        <li class="pgLi pagination-link" id="D4">D4</li>
+                        <li class="pgLi pagination-link" id="D5">D5</li>
+                        <li class="pgLi pagination-link" id="D6">D6</li>
+                        <li class="pgLi pagination-link" id="D7">D7</li>
+                        <li class="pgLi pagination-link" id="D8">D8</li>
+                        <li class="pgLi pagination-link" id="D9">D9</li>
+                        <li class="pgLi pagination-link" id="D10">D10</li>
+                        <li class="pgLi pagination-link" id="D11">D11</li>
+                        <li class="pgLi pagination-link" id="D12">D12</li>
+                        <li class="pgLi pagination-link" id="D13">D13</li>
+                        <li class="pgLi pagination-link" id="D14">D14</li>
+                        <li class="pgLi pagination-link" id="D15">D15</li>
+                    </ul>
+                </nav>
+                <div class="container" id="d_format_holder">
+
+                </div>
+            </div>
+            <div class="box" id="sv_container">
+                <nav aria-label="template" class="pagination" id="sv_cont_nav" role="navigation">
+                    <ul>
+                        <li class="svLi pagination-link" id="SVD1">D1</li>
+                        <li class="svLi pagination-link" id="SVD2">D2</li>
+                        <li class="svLi pagination-link" id="SVD3">D3</li>
+                        <li class="svLi pagination-link" id="SVD4">D4</li>
+                        <li class="svLi pagination-link" id="SVD5">D5</li>
+                        <li class="svLi pagination-link" id="SVD6">D6</li>
+                        <li class="svLi pagination-link" id="SVD7">D7</li>
+                        <li class="svLi pagination-link" id="SVD8">D8</li>
+                        <li class="svLi pagination-link" id="SVD9">D9</li>
+                        <li class="svLi pagination-link" id="SVD10">D10</li>
+                        <li class="svLi pagination-link" id="SVD11">D11</li>
+                        <li class="svLi pagination-link" id="SVD12">D12</li>
+                        <li class="svLi pagination-link" id="SVD13">D13</li>
+                        <li class="svLi pagination-link" id="SVD14">D14</li>
+                        <li class="svLi pagination-link" id="SVD15">D15</li>
+                    </ul>
+                </nav>
+                <p id="SVD_format_holder">
+
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    // jQuery
+    $ = require('jquery');
+
+    // userhome script
+    require('./get_user')
+
+</script>
+
+</body>
+
+</html>

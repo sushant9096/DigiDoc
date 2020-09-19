@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D10 Print Preview</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:10px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-body">
+    <div class="table-editable" id="table">
+        <div class="row">
+            <div class="col text-right font-weight-bold">D10</div>
+        </div>
+        <div class="row">
+            <div class="cell">For AICTE Diploma Courses</div>
+            <div class="cell" style="margin-left: 40vw">wef - 2017-18</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">Maharashtra State Board of Technical Education</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">DETAILS OF FACULTY / STAFF TRAINING</div>
+        </div>
+        <div class="row" style="padding-top: 10vh">
+            <div id="academicV" class="col is-left">Academic Year:</div>
+        </div>
+        <div class="row" style="padding-bottom: 2vh">
+            <div id="programV" class="col">Program:</div>
+        </div>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+            <tr>
+                <th>Sr. NO</th>
+                <th>Name of Faculty / Staff</th>
+                <th>Details of training (Industrial/Content Updating/Soft Skill/Any Other)</th>
+                <th>Duration of Training (Schedule)</th>
+                <th>Organizing Body</th>
+                <th>Organizing Institute</th>
+                <th>Relevance with PEO's, & PO's & CO with Course Code (only nos.)</th>
+            </tr>
+            </thead>
+            <tbody id="et_d1_tbl_body">
+            </tbody>
+        </table>
+        <div class="row" style="padding-top: 5vh">
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of Academic Co-ordinator)</div>
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of HOD)</div>
+        </div>
+        <div class="row" style="padding-top: 5vh">
+            <div class="text-center"><strong>Note- </strong>Faculty/Staff undergone training should transfer the acquired knowledge to the departmental staff & students. The HOD/Principal should certify the activity conducted in this regard & maintain record as per MSBTE norms.</div>
+        </div>
+        <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+        </span>
+    </div>
+</div>
+<script>
+
+    // jquery
+    $ = require('jquery');
+    require('./pr_d10');
+</script>
+</body>
+</html>

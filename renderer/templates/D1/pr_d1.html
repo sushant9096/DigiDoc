@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print Preview</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:10px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-body">
+    <div class="table-editable" id="table">
+        <div class="row">
+            <div class="cell text-right font-weight-bold">D1</div>
+        </div>
+        <div class="row">
+            <div class="cell">For AICTE Diploma Courses</div>
+            <div class="cell" style="margin-left: 40vw">wef - 2017-18</div>
+        </div>
+        <div class="row">
+            <div class="cell text-center font-weight-bold">Maharashtra State Board of Technical Education</div>
+        </div>
+        <div class="row">
+            <div class="cell text-center font-weight-bold">TEACHING PLAN(TP)</div>
+        </div>
+        <div class="row" style="padding-top: 10vh">
+            <div id="academicV" class="cell is-left">Academic Year:</div>
+        </div>
+        <div class="row">
+            <div id="programV" class="cell">Program:</div>
+            <div id="courseV" class="cell">Course:</div>
+            <div id="course_cV" class="cell">Course Code:</div>
+        </div>
+        <div class="row" style="padding-bottom: 2vh">
+            <div id="semesterV" class="cell">Semester:</div>
+            <div id="name_falV" class="cell">Name of Faculty:</div>
+        </div>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+            <tr>
+                <th class="text-center">Sr. No</th>
+                <th class="text-center">Chapter No.(Allocated Hrs.)</th>
+                <th class="text-center">CO(Mention Only Number)</th>
+                <th class="text-center">UO(Mention Only Number)</th>
+                <th class="text-center">Title/Details</th>
+                <th class="text-center">Plan(Form - To & No. of Lectures)</th>
+                <th class="text-center">Actual Execution(From-To & No. of Lectures.)</th>
+                <th class="text-center">Teaching Method/Media</th>
+                <th class="text-center">Remarks</th>
+            </tr>
+            </thead>
+            <tbody id="et_d1_tbl_body">
+            </tbody>
+        </table>
+        <div id="tbl_last" class="row" style="padding-top: 5vh">
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of Faculty)</div>
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of HOD)</div>
+        </div>
+        <div class="row">
+            <strong>*Faculty is supposed to mention the details of Topic & Subtopic.</strong>
+        </div>
+        <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+            </span>
+    </div>
+</div>
+
+<script>
+
+    // jquery
+    $ = require('jquery');
+    require('./pr_d1');
+</script>
+</body>
+</html>

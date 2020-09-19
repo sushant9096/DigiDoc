@@ -1,0 +1,34 @@
+{
+	"name": "digidoc",
+	"productName": "DigiDoc",
+	"version": "0.0.5",
+	"description": "Digital Document app",
+	"main": "main.js",
+	"license": "MIT",
+	"repository": "sushant9096/firstelectron-generated",
+	"author": {
+		"name": "Sushant Zope",
+		"email": "sushantzope9096@gmail.com",
+		"url": "github.com"
+	},
+	"scripts": {
+		"electron": "electron .",
+		"start": "APP_DEV=true electron .",
+		"build": "electron-packager . --out=dist/win --platform=win32 --arch=x64 --icon=images/DigiDocLogo.ico --asar=true --overwrite"
+	},
+	"dependencies": {
+		"bootstrap": "^4.4.1",
+		"bower": "^1.8.8",
+		"electron-json-storage": "^4.1.8",
+		"firebase": "^7.11.0",
+		"firebase-admin": "^8.10.0",
+		"jquery": "^3.4.1",
+		"popper.js": "^1.16.1"
+	},
+	"devDependencies": {
+		"electron": "^7.1.14",
+		"electron-packager": "^14.2.1",
+		"electron-reload": "^1.5.0",
+		"iohook": "^0.6.5"
+	}
+}

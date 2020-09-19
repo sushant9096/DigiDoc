@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D15 Print Preview</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:2px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-body">
+    <div class="table-editable" id="table">
+        <div class="row">
+            <div class="col text-right font-weight-bold">D15</div>
+        </div>
+        <div class="row">
+            <div class="cell">For AICTE Diploma Courses</div>
+            <div class="cell" style="margin-left: 40vw">wef - 2017-18</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">Maharashtra State Board of Technical Education</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">Facilities Available in the Department</div>
+        </div>
+        <div class="row" style="padding-bottom: 2vh">
+            <div class="col">Provide the details of the facilities & Specifications of Major / Essential Equipment's available for conduction of practical as per curriculum</div>
+        </div>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+            <tr>
+                <th>Sr. No</th>
+                <th>Name of Laboratory</th>
+                <th>Semester wise Course Codes assigned to this Lab</th>
+                <th>Details of the Facility / Equipment Available</th>
+                <th>Quantity</th>
+                <th>Total Cost</th>
+            </tr>
+            </thead>
+            <tbody id="et_d1_tbl_body">
+            </tbody>
+        </table>
+        <div class="row" style="padding-top: 5vh">
+            <div class="col font-weight-bold text-right" style="text-align: center">(Name &amp; Signature of HOD)</div>
+        </div>
+        <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+        </span>
+    </div>
+</div>
+<script>
+
+    // jquery
+    $ = require('jquery');
+    require('./pr_d15');
+</script>
+</body>
+</html>

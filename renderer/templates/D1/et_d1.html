@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D1 Editor</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../bower_components/font-awesome/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Editable table -->
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editing D1</h3>
+    <div class="card-body">
+        <div class="row">
+            <div class="col" id="create_d1_format">
+                <div class="text-center">
+                    <a href="" class="float-right btn btn-default btn-rounded mb-4 btn-dark" data-toggle="modal" data-target="#modalRegisterForm">Create D1 Format</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-editable" id="table">
+            <div class="row">
+                <div class="col text-center">Maharashtra State Board of Technical Education</div>
+            </div>
+            <div class="row">
+                <div class="col text-center">TEACHING PLAN(TP)</div>
+            </div>
+            <div class="row" style="padding-top: 10vh">
+                <div id="academicV" class="col is-left"><a>Academic Year:</a></div>
+            </div>
+            <div class="row">
+                <div id="programV" class="col">Program:</div>
+                <div id="courseV" class="col">Course:</div>
+                <div id="course_cV" class="col">Course Code:</div>
+            </div>
+            <div class="row" style="padding-bottom: 2vh">
+                <div id="semesterV" class="col">Semester:</div>
+                <div id="name_falV" class="col">Name of Faculty:</div>
+            </div>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                <tr>
+                    <th class="text-center">Sr. No</th>
+                    <th class="text-center">Chapter No.(Allocated Hrs.)</th>
+                    <th class="text-center">CO(Mention Only Number)</th>
+                    <th class="text-center">UO(Mention Only Number)</th>
+                    <th class="text-center">Title/Details</th>
+                    <th class="text-center">Plan(Form - To & No. of Lectures)</th>
+                    <th class="text-center">Actual Execution(From-To & No. of Lectures.)</th>
+                    <th class="text-center">Teaching Method/Media</th>
+                    <th class="text-center">Remarks</th>
+                </tr>
+                </thead>
+                <tbody id="et_d1_tbl_body">
+                </tbody>
+            </table>
+            <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="waitD3RowCreationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Record Creation</h4>
+                    <button type="button" class="close">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    You have to wait Please!
+                </div>
+
+                <!-- Modal footer -->
+                <!--div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div-->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="impFieldModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Format Creation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <strong>Please!</strong> Fill All Fields Before Submit.
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button id="fill_OK_btn" type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="compltedD1CreationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Format Creation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    You have successfully created D1 format.
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Creating D1 Format</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Template Name:</label>
+                        <input type="text" id="format_name" class="form-control validate">
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Academic Year:</label>
+                        <input type="text" id="academic_year" class="form-control validate">
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Program:</label>
+                        <input type="text" id="program" class="form-control validate">
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Course:</label>
+                        <input type="text" id="course" class="form-control validate">
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Course Code:</label>
+                        <input type="text" id="course_code" class="form-control validate">
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Semester:</label>
+                        <input type="text" id="semester" class="form-control validate">
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right">Name of Faculty:</label>
+                        <input type="text" id="name_faculty" class="form-control validate">
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button id="create_d1" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center modalWrapper">
+        <div aria-hidden="true" aria-labelledby="modalAdd" class="modal fade addNewInputs" id="modalAdd" role="dialog"
+             tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold text-primary ml-5">Add New Data</h4>
+                        <button aria-label="Close" class="close text-primary" data-dismiss="modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Chapter No</label>
+                            <input class="form-control validate" id="input_ch_no" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">CO</label>
+                            <input class="form-control validate" id="inputCO" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">UO</label>
+                            <input class="form-control validate" id="inputUO" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Title or Details</label>
+                            <input class="form-control validate" id="inputTD" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Plan (From - To & No of lectures)</label>
+                            <input class="form-control" id="inputPlane" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Actual Execution(From-To & No. of Lectures.)</label>
+                            <input class="form-control validate" id="inputAE" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Teaching Method/Media</label>
+                            <input class="form-control validate" id="inputTMM" type="text">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right">Remarks</label>
+                            <input class="form-control validate" id="inputRM" type="text">
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
+                        <button id="add_row" class="btn btn-outline-primary btn-block buttonAdd" data-dismiss="modal">Add
+                            <i class="fas fa-paper-plane-o ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Editable table -->
+<button id="go_back_home" class="btn btn-outline-info float-right m-4 font-weight-bold">Go Back Home</button>
+<script>
+
+    $ = require('jquery');
+    window.$ = $;
+    require('bootstrap');
+    require('./et_d1')
+</script>
+</body>
+</html>

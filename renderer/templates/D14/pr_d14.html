@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D14 Print Preview</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .row{
+            display:flex;
+            justify-content:flex-start;
+            align-items:stretch;
+            flex-wrap:nowrap;
+            padding:2px;
+        }
+        .cell{
+            min-height:30px;
+            flex-grow:1;
+            flex-basis:100%;
+        }
+        @media (max-width: 768px){
+            .row{
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-body">
+    <div class="table-editable" id="table">
+        <div class="row">
+            <div class="col text-right font-weight-bold">D14</div>
+        </div>
+        <div class="row">
+            <div class="cell">For AICTE Diploma Courses</div>
+            <div class="cell" style="margin-left: 40vw">wef - 2017-18</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">Maharashtra State Board of Technical Education</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">STUDENTS FEEDBACK</div>
+        </div>
+        <div class="row">
+            <div class="col text-center font-weight-bold">(Head of the Department shall take the Feed Back at the End of Second Class Test)</div>
+        </div>
+        <div class="row" style="padding-top: 5vh; padding-bottom: 2vh">
+            <div class="col" id="academicV">Academic Year:</div>
+            <div class="col" id="programV">Program:</div>
+            <div class="col" id="semV">Semester:</div>
+            <div class="col" id="dateV">Date:</div>
+        </div>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+            <tr>
+                <th rowspan="2">Sr. No</th>
+                <th rowspan="2">Name of Course (TH / PR)</th>
+                <th rowspan="2">Name of Faculty</th>
+                <th colspan="5" class="has-text-centered">Each Parameter to be Assessed on the Scale of 1 to 5<br>(1 - Lowest &amp; 5 - Highest)</th>
+                <th rowspan="2">Total<br>(Max 25)</th>
+            </tr>
+            <tr>
+                <th>Punctuality &amp; Discipline</th>
+                <th>Domain Knowledge</th>
+                <th>Presentation Skill &amp; Interaction with Students</th>
+                <th>Ability to Resolve Difficulties</th>
+                <th>Effective Use of Teaching Aids</th>
+            </tr>
+            </thead>
+            <tbody id="et_d1_tbl_body">
+            </tbody>
+        </table>
+        <div class="row" style="padding-top: 5vh">
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of Academic Co-ordinator)</div>
+            <div class="cell font-weight-bold" style="text-align: center">(Name &amp; Signature of HOD)</div>
+        </div>
+        <span class="table-add float-right mb-3 mr-2" id="add_new_row">
+                <a class="text-success" data-toggle="tooltip" title="Create New Row" href="#!">
+                  <i aria-hidden="true" class="fas fa-plus fa-2x"></i>
+                </a>
+        </span>
+    </div>
+</div>
+<script>
+
+    // jquery
+    $ = require('jquery');
+    require('./pr_d14');
+</script>
+</body>
+</html>
